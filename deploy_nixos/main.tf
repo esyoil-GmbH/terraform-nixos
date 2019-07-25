@@ -65,7 +65,7 @@ locals {
 
 # used to detect changes in the configuration
 data "external" "nixos-instantiate" {
-  program = [
+  program = flatten([
     "${path.module}/nixos-instantiate.sh",
     var.NIX_PATH,
     var.config != "" ? var.config : var.nixos_config,
@@ -73,7 +73,7 @@ data "external" "nixos-instantiate" {
     local.target_system,
     local.attr_path,
     var.extra_eval_args,
-  ]
+  ])
 }
 
 resource "null_resource" "deploy_nixos" {
