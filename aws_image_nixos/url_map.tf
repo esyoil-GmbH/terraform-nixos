@@ -1,6 +1,6 @@
 # DON'T EDIT, run './update-url-map' instead
 variable "url_map" {
-  type = "map"
+  type = map(string)
 
   default = {
     "14.04.ap-northeast-1.hvm-ebs"  = "ami-71c6f470"

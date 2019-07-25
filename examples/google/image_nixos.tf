@@ -3,7 +3,7 @@
 
 module "nixos_image_1809" {
   source  = "../../google_image_nixos"
-  version = "18.09"
+  release = "18.09"
 }
 
 // This instance is not very useful since it doesn't contain any
@@ -15,7 +15,7 @@ resource "google_compute_instance" "image-nixos" {
 
   boot_disk {
     initialize_params {
-      image = "${module.nixos_image_1809.self_link}"
+      image = module.nixos_image_1809.self_link
     }
   }
 
